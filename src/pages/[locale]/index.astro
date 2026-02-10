@@ -1,0 +1,62 @@
+---
+import {
+  getCollection,
+  getEntryBySlug,
+  type CollectionEntry,
+} from "astro:content";
+import Container from "@components/Container.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import Link from "@components/Link.astro";
+import { dateRange } from "@lib/utils";
+import { SITE, HOME, SOCIALS } from "@consts";
+
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { getEntry } from "astro:content";
+
+const t = useTranslations(Astro.params.locale as "en" | "zh");
+export async function getStaticPaths() {
+  const en = await getEntry("home", "en");
+  const zh = await getEntry("home", "zh");
+
+  return [
+    { params: { locale: "en" }, props: { post: en } },
+    { params: { locale: "zh" }, props: { post: zh } },
+  ];
+}
+
+const { post } = Astro.props as {
+  post: CollectionEntry<"home">;
+};
+
+const { Content } = await post.render();
+---
+
+<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+  <Container>
+    <h4 class="animate font-semibold text-black dark:text-white">
+      {post.data.title}
+    </h4>
+    <div class="space-y-16">
+      <section>
+        <article class="space-y-4 animate">
+            <p><Content /></p>
+        </article>
+
+        <section class="animate space-y-4">
+          <h5 class="font-semibold text-black dark:text-white">{post.data.contact_title}</h5>
+          <article>
+            <p>
+              <Link
+                href={`mailto:${SITE.EMAIL}`}
+                aria-label={`Email ${SITE.NAME}`}
+              >
+                {SITE.EMAIL}
+              </Link>: {post.data.contact_description}
+            </p>
+          </article>
+        </section>
+      </section>
+    </div>
+  </Container>
+</PageLayout>

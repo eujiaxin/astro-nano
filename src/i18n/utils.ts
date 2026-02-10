@@ -21,7 +21,6 @@ export function getLangFromUrl(url: URL) {
  * ```
  */
 export function useTranslations(lang: keyof typeof ui) {
-    console.log(`Creating translation function for language: ${lang}`);
   return function t(key: keyof (typeof ui)[typeof defaultLang]) {
     return key in ui[lang] ? (ui[lang] as any)[key] : ui[defaultLang][key];
   };
@@ -30,7 +29,6 @@ export function useTranslations(lang: keyof typeof ui) {
 
 export async function getBlogsByLocale(locale: keyof typeof ui) {
     return (await getCollection('blog')).filter(entry => {
-        console.log("Checking entry:", entry.id, "for locale:", locale); 
         return entry.id.startsWith(locale);
     });
 }
