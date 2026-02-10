@@ -4,8 +4,9 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import { BLOG } from "@consts";
+import { getBlogsByLocale, useTranslations } from "@i18n/utils";
 
-const data = (await getCollection("blog"))
+const data = (await getBlogsByLocale(Astro.params.locale as "en" | "zh"))
   .filter(post => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   
@@ -23,13 +24,19 @@ const posts = data.reduce((acc: Acc, post) => {
   }, {});
 
 const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a)); 
+
+const t = useTranslations(Astro.params.locale as "en" | "zh");
+
+export async function getStaticPaths() {
+  return [{ params: { locale: "en" } }, { params: { locale: "zh" } }];
+}
 ---
 
-<PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+<PageLayout title={BLOG.TITLE} description={t("blog.title")}>
   <Container>
     <div class="space-y-10">
       <div class="animate font-semibold text-black dark:text-white">
-        collection of silly little thoughts
+        {t("blog.title")}
       </div>
       <div class="space-y-4">
         {years.map(year => (

@@ -1,0 +1,24 @@
+---
+import { languages } from "@i18n/ui";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const pathname = Astro.url.pathname;
+
+// extract current lang + rest of path
+const [, currentLang, ...rest] = pathname.split("/");
+
+// `/blog/first-post` (no lang) — keep it intact
+const rawPath = languages[currentLang as keyof typeof languages]
+  ? `/${rest.join("/")}`
+  : pathname;
+
+// NOTE: this logic will need refactoring if we want to support more languages in future... (e.g. japanese!)
+// determine target language
+const nextLang = currentLang === "en" ? "zh" : "en";
+const href = getRelativeLocaleUrl(nextLang, rawPath);
+const label = languages[nextLang as keyof typeof languages];
+---
+
+<a href={href} role="button" aria-label={`Switch language to ${label}`}>
+  [{label}]
+</a>
