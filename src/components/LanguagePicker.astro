@@ -7,7 +7,7 @@ const pathname = Astro.url.pathname;
 // extract current lang + rest of path
 const [, currentLang, ...rest] = pathname.split("/");
 
-// `/blog/first-post` (no lang) — keep it intact
+// `/blog/post-name` (no lang) — keep it intact
 const rawPath = languages[currentLang as keyof typeof languages]
   ? `/${rest.join("/")}`
   : pathname;
