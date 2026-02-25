@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-  site: "https://eujiaxin.github.io",
+  site: "https://hehehappyplace.com/en/",
   integrations: [mdx(), sitemap(), tailwind()],
   i18n: {
     locales: ["en", "zh"],
