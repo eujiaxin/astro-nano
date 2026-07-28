@@ -9,5 +9,5 @@ i once read a book on an app that had a feature where you could click on lines o
 <p>
 
 <p class="animate">
-i have so many silly little thoughts to share, but not being “articulate” enough has always been one of my biggest frustrations in life. i know someone who could accurately describe ambiguous thoughts i had, occasionally they would also surprise me with new thoughts i had never considered. i wish i could be articulate like them. this site will hopefully be my valiant attempt to practice!
+i have so many silly little thoughts to share, but not being “articulate” enough has always been one of my biggest frustrations in life. i know someone who could accurately describe ambiguous thoughts i have, occasionally they would also surprise me with new thoughts i had never considered. i wish i could be articulate like them. this site will hopefully be my valiant attempt to practice!
 <p>
