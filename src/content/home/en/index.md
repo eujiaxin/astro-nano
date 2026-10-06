@@ -9,5 +9,5 @@ there was one particular comment in a book that stuck with me - it was about the
 <p>
 
 <p class="animate">
-i have many silly little thoughts to share, but not being “articulate” enough has always been one of my biggest frustrations in life. sometimes people i talk to are able to put vague feelings i have into words better than i ever could, occasionally they would even surprise me with new thoughts i'd never considered before. i wish i could be articulate like them. hopefully i can practice blend tomatoes better here.
+i have many silly little thoughts to share, but not being “articulate” enough has always been one of my biggest frustrations in life. sometimes people i talk to are able to put vague feelings i have into words better than i ever could, occasionally they would even surprise me with new thoughts i'd never considered before. i wish i could be articulate like them. hopefully i can practice blending tomatoes better here.
 <p>
