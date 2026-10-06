@@ -9,7 +9,7 @@ export const defaultLang = "en";
 export const ui = {
   en: {
     "nav.blog": "thoughts",
-    "blog.title": "collection of my silly little thoughts."
+    "blog.title": "collection of silly little thoughts."
   },
   zh: {
     "nav.blog": "想法",
